@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-title>Excluir Fornecedor</mat-card-title>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Razão Social*</mat-label>
+            <input matInput placeholder="Razão Social" [value]="supplier.forRazaoSocial" name="forRazaoSocial" disabled>
+        </mat-form-field >
+        <mat-form-field appearance="outline">
+            <mat-label>Nome Fantasia*</mat-label>
+            <input matInput placeholder="Nome Fantasia" [value]="supplier.forNomeFantasia" name="forNomeFantasia" disabled>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Cnpj**</mat-label>
+            <input matInput placeholder="CNPJ" [value]="supplier.forCnpj" name="forCnpj" disabled>
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="deleteSupplier()" color="warn">
+        Excluir
+    </button>
+   
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

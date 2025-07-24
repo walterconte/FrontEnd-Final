@@ -1,0 +1,80 @@
+<mat-card>
+  <mat-card-title>Nova Forma de Pagamento</mat-card-title>
+
+  <form #form="ngForm" (ngSubmit)="createPaymentMethod()">
+
+
+     <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgNome" name="fpgNome" required maxlength="100" #fpgNome="ngModel"
+        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="fpgNome.invalid && fpgNome.touched">Nome é obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Tipo -->
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required maxlength="50" #fpgTipo="ngModel"
+        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="fpgTipo.invalid && fpgTipo.touched">Tipo é obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Descrição -->
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" maxlength="200"  #fpgDescricao="ngModel">
+      <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
+    </mat-form-field>
+
+    <!-- Parcelamento -->
+    <mat-form-field appearance="outline">
+      <mat-label>Permitir Parcelamento?</mat-label>
+      <mat-select [(ngModel)]="paymentMethod.fpgPermiteParcelamento" name="fpgPermiteParcelamento" required #fpgPermiteParcelamento="ngModel">
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+      <mat-error *ngIf="fpgPermiteParcelamento.invalid && fpgPermiteParcelamento.touched">Selecione uma opção</mat-error>
+    </mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Máximo de Parcelas</mat-label>
+  <input matInput
+         type="number"
+         [(ngModel)]="paymentMethod.fpgNumMaxParcelas"
+         name="fpgNumMaxParcelas"
+         required
+         min="1"
+         max="99"
+         [disabled]="!paymentMethod.fpgPermiteParcelamento"
+         (keypress)="apenasNumeros($event)"
+         #fpgNumMaxParcelas="ngModel">
+  <mat-error *ngIf="fpgNumMaxParcelas.invalid && fpgNumMaxParcelas.touched">
+    Informe um número entre 1 e 99.
+  </mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Taxa Adicional (%)</mat-label>
+  <input matInput
+         [(ngModel)]="paymentMethod.fpgTaxaAdicional"
+         name="fpgTaxaAdicional"
+         required
+         maxlength="2"
+         [disabled]="!paymentMethod.fpgPermiteParcelamento"
+         (keypress)="apenasNumeros($event)"
+         #fpgTaxaAdicional="ngModel">
+  <mat-error *ngIf="fpgTaxaAdicional.invalid && fpgTaxaAdicional.touched">
+    Obrigatório
+  </mat-error>
+</mat-form-field>
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
+</mat-card>

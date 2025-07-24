@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Nova Marca</mat-card-title>
+
+  <form #form="ngForm" (ngSubmit)="createMarca()">
+    <!-- Nome -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="marca.marNome" name="marNome" required maxlength="50" #marNome="ngModel"
+      (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="marNome.invalid && marNome.touched">Nome é obrigatório</mat-error>
+    </mat-form-field>
+
+    <!-- Descrição -->
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição*</mat-label>
+      <input matInput [(ngModel)]="marca.marDescricao" name="marDescricao" maxlength="200" #marDescricao="ngModel">
+      <mat-error *ngIf="marDescricao.invalid && marDescricao.touched">Descrição é obrigatória</mat-error>
+    </mat-form-field>
+
+
+        <!-- Status da Marca -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status da Marca</mat-label>
+      <mat-select [(ngModel)]="marca.marAtivo" name="marAtivo" required #marAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+      <mat-error *ngIf="marAtivo.invalid && marAtivo.touched">Obrigatório.</mat-error>
+    </mat-form-field>
+
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>
+  </form>
+</mat-card>

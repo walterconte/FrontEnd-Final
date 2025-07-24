@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-title>Excluir Método de Pagamento</mat-card-title>
+    <form>
+         <mat-form-field appearance="outline">
+            <mat-label>Nome*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgNome" name="fpgNome" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgTipo" name="fpgTipo" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgDescricao" name="fpgDescricao" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Permite Parcelamento?*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgPermiteParcelamento" name="fpgPermiteParcelamento" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>MaxParcelas*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgNumMaxParcelas" name="fpgNumMaxParcelas" disabled>
+        </mat-form-field>
+       
+        <mat-form-field appearance="outline">
+            <mat-label>TaxaAdicional*</mat-label>
+            <input matInput placeholder="" [value]="paymentMethod.fpgTaxaAdicional" name="fpgTaxaAdicional" disabled>
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="deletePaymentMethod()" color="warn">
+        Excluir
+    </button>
+   
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

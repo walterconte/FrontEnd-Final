@@ -1,0 +1,65 @@
+<mat-card>
+    <mat-card-title>Excluir Produto</mat-card-title>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Nome do Produto*</mat-label>
+            <input matInput placeholder="" [value]="product.proNome" name="proNome" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"> 
+            <mat-label>Preço de Custo(R$)*</mat-label>
+            <input matInput placeholder="" [value]="product.proPrecoCusto" name="proPrecoCusto" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Preço de Venda(R$)*</mat-label>
+            <input matInput placeholder="" [value]="product.proPrecoVenda" name="proPrecoVenda" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Quantidade*</mat-label>
+            <input matInput placeholder="" [value]="product.proQuantidade" name="proQuantidade" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição*</mat-label>
+            <input matInput placeholder="" [value]="product.proDescricao" name="proDescricao" disabled>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Código de Barras*</mat-label>
+            <input matInput placeholder="" [value]="product.proCodigoBarras" name="proCodigoBarras" disabled>
+        </mat-form-field>
+
+        
+<mat-form-field appearance="outline">
+  <mat-label>Marca*</mat-label>
+  <input matInput [value]="product.marca?.marNome" disabled>
+</mat-form-field>
+
+
+
+
+
+      <mat-form-field appearance="outline">
+  <mat-label>Fornecedor*</mat-label>
+  <input matInput [value]="product.fornecedor?.forNomeFantasia" disabled>
+</mat-form-field>
+        
+        <mat-form-field appearance="outline">
+      <mat-label>Ativo</mat-label>
+      <input matInput [value]="product.proAtivo ? 'Ativo' : 'Inativo'" name="proAtivo" disabled>
+    </mat-form-field>
+          
+      
+    </form>
+
+    <button mat-raised-button (click)="deleteProduct()" color="warn">
+        Excluir
+    </button>
+   
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+
+</mat-card> 

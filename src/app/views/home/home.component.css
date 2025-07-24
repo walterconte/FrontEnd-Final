@@ -1,0 +1,112 @@
+.home {
+    background: transparent; /* remove o fundo cinza */
+    padding: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: none; /* remove sombra externa */
+}
+
+.card-content {
+    padding: 0;
+}
+
+/* Boas-vindas */
+.welcome-message {
+    font-size: 2.2rem;
+    color: #575151;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.system-name {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Logo */
+.image-container {
+    margin: 10px 0 20px 0;
+}
+
+.image-container img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(20, 20, 20, 0.4);
+}
+
+/* Subtítulo */
+.subtitle {
+    font-size: 1.3rem;
+    color: #2c2a2a;
+    margin-bottom: 25px;
+}
+
+/* Menu de botões lado a lado */
+.menu-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #302e2e;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(218, 185, 187, 0.5);
+}
+
+.btn-primary:hover {
+    background-color: #443e3e;
+    box-shadow: 0 4px 10px rgba(63, 58, 58, 0.6);
+}
+
+/* Caixa de aviso */
+.alert-box {
+    background-color: #28288a;
+    border: 2px solid #2b2828;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    color: #DEE7E7;
+    text-align: center;
+}
+
+.alert-box h3 {
+    color: #1a1919;
+    margin-bottom: 10px;
+}
+
+.alert-box p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Botão de alerta */
+.btn-secondary {
+    background-color: #2e2c2c;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #504c4c;
+}
+
+
+

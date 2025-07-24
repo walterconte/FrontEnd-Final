@@ -1,0 +1,143 @@
+<mat-card>
+  <mat-card-title>Novo Fornecedor</mat-card-title>
+
+  <form #fornecedorForm="ngForm" (ngSubmit)="createSupplier()">
+    <!-- Razão Social -->
+    <mat-form-field appearance="outline">
+      <mat-label>Razão Social</mat-label>
+      <input matInput
+             [(ngModel)]="supplier.forRazaoSocial"
+             name="forRazaoSocial"
+             required
+             maxlength="100"
+             #forRazaoSocial="ngModel">
+      <mat-error *ngIf="forRazaoSocial.invalid && forRazaoSocial.touched">
+        Razão Social é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Nome da Fantasia -->
+  <mat-form-field appearance="outline">
+  <mat-label>Nome da Fantasia</mat-label>
+  <input matInput
+         [(ngModel)]="supplier.forNomeFantasia"
+         name="forNomeFantasia"
+         required
+         #forNomeFantasia="ngModel"
+         maxlength="100">
+  <mat-error *ngIf="forNomeFantasia.invalid && forNomeFantasia.touched">
+    Nome da Fantasia é obrigatório.
+  </mat-error>
+</mat-form-field>
+
+    <!-- CNPJ -->
+<mat-form-field appearance="outline">
+  <mat-label>CNPJ</mat-label>
+<input matInput
+       [(ngModel)]="supplier.forCnpj"
+       name="forCnpj"
+       required
+       [mask]="'00.000.000/0000-00'"
+       #forCnpj="ngModel">
+  <mat-error *ngIf="forCnpj.invalid && forCnpj.touched">
+    CNPJ é obrigatório e deve estar no formato correto.
+  </mat-error>
+</mat-form-field>
+
+<mat-card-title>Contatos</mat-card-title>
+
+    <!-- Contato -->
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput [(ngModel)]="supplier.conCelular" mask="(00) 00000-0000" name="conCelular" required #conCelular="ngModel">
+      <mat-error *ngIf="conCelular.invalid && conCelular.touched">
+        Celular é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone Comercial</mat-label>
+      <input matInput [(ngModel)]="supplier.conTelefoneComercial"  mask="(00) 00000-0000" name="conTelefoneComercial">
+    </mat-form-field>
+
+ 
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="supplier.conEmail" name="conEmail"   pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" maxlength="55" type="email" required #conEmail="ngModel">
+      <mat-error *ngIf="conEmail.invalid && conEmail.touched">
+        Email inválido ou obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-card-title>Endereço</mat-card-title>
+
+    <!-- Endereço -->
+    <mat-form-field appearance="outline">
+      <mat-label>Rua</mat-label>
+      <input matInput [(ngModel)]="supplier.endRua" name="endRua" required #endRua="ngModel" maxlength="50"
+       (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endRua.invalid && endRua.touched">
+        Rua é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Número</mat-label>
+      <input matInput [(ngModel)]="supplier.endNumero" name="endNumero" required #endNumero="ngModel" maxlength="15"
+          (keypress)="apenasNumeros($event)">
+      <mat-error *ngIf="endNumero.invalid && endNumero.touched">
+        Número é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input matInput [(ngModel)]="supplier.endCidade" name="endCidade" required #endCidade="ngModel" maxlength="100"
+       (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endCidade.invalid && endCidade.touched">
+        Cidade é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>CEP</mat-label>
+      <input matInput [(ngModel)]="supplier.endCep" name="endCep" required #endCep="ngModel" maxlength="8"
+        (keypress)="apenasNumeros($event)"
+         (paste)="bloquearPasteNumeros($event)">  
+      <mat-error *ngIf="endCep.invalid && endCep.touched">
+        CEP é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input matInput [(ngModel)]="supplier.endEstado" name="endEstado" required maxlength="100" #endEstado="ngModel" 
+        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endEstado.invalid && endEstado.touched">
+        Estado é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    
+    <mat-card-title>Status</mat-card-title>
+
+       <!-- Status do Fornecedor -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status do Fornecedor</mat-label>
+      <mat-select [(ngModel)]="supplier.forAtivo" name="forAtivo" required #forAtivo="ngModel">
+        <mat-option [value]="true">Ativo</mat-option>
+        <mat-option [value]="false">Inativo</mat-option>
+      </mat-select>
+      <mat-error *ngIf="forAtivo.invalid && forAtivo.touched">Obrigatório.</mat-error>
+    </mat-form-field>
+    
+
+    <!-- Botões -->
+    <button mat-raised-button color="primary" type="submit">
+      Salvar
+    </button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      Cancelar
+    </button>   
+  </form>
+</mat-card>

@@ -1,0 +1,60 @@
+/* Estilo geral do cabeçalho */
+.header {
+    background-color: #92928a;
+    color: white;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Nome da marca estilizado */
+.brand-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(27, 24, 24);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.brand-name:hover {
+    transform: scale(1.05);
+}
+
+.brand-name span {
+    color: #141111; /* Vermelho para destacar o "" */
+}
+
+/* Espaço flexível para empurrar os itens da direita */
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* Links de navegação simplificados */
+.nav-links {
+    display: flex;
+    gap: 24px; /* Aumenta o espaço entre os links */
+}
+
+.nav-link {
+    color: rgb(32, 31, 31);
+    text-decoration: none;
+    font-size: 16px; /* Tamanho de fonte um pouco maior */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+    transition: color 0.2s, transform 0.2s;
+}
+
+.nav-link:hover {
+    color: #1e0441; /* Mude a cor do texto no hover para a cor de destaque */
+    transform: translateY(-2px); /* Efeito sutil de levantar */
+}
+
+/* Ícones */
+.nav-link i {
+    font-size: 20px;
+}

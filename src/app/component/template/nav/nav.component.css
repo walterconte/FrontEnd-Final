@@ -1,0 +1,23 @@
+/* Estilo para a barra lateral (sidenav) */
+.sidenav {
+    background-color: #233158; /* Cor de fundo da barra lateral */
+    width: 200px; /* Largura fixa da barra lateral */
+}
+
+.sidenav a {
+    color: #726d6d; /* Cor do texto dos links na barra lateral */
+}
+
+.sidenav i {
+    padding-right: 10px; /* Espaçamento à direita do ícone na barra lateral */
+}
+
+/* Estilo para o conteúdo principal */
+.content {
+    padding: 16px; /* Espaçamento interno do conteúdo */
+    background-color: #b9b9b9; /* Cor de fundo do conteúdo */
+}
+
+
+/* Estilo para elementos span */
+
