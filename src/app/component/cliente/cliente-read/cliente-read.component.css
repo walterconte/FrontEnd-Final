@@ -1,10 +1,10 @@
 /* Container com fundo escuro e cantos arredondados */
 .mat-elevation-z4 {
-  background-color: #282832;
+  background-color: #2F4F4F;
   border-radius: 8px;
   padding: 16px;  /* aumentei um pouco o padding para mais espaço */
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(5, 243, 192, 0.4);
 }
 
 /* Tabela base */
@@ -41,7 +41,7 @@ tr:nth-child(even) td {
 
 /* Ações: Editar */
 .edit > i {
-  color: #d9cd26;
+  color: #1caf29;
   cursor: pointer;
 }
 
@@ -117,4 +117,13 @@ input::placeholder {
 
 .mat-option:hover {
   background-color: #2a2a38;
+}
+
+/* Específico para Nome e CPF */
+.search-bar.nome {
+  flex: 0 0 250px; /* largura fixa */
+}
+
+.search-bar.cpf {
+  flex: 0 0 180px; /* largura fixa */
 }

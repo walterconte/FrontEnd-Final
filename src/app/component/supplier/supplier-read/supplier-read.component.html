@@ -5,10 +5,6 @@
     <input matInput (input)="onFilterChange('nomeFantasia', $event)" placeholder="Nome">
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Pesquisar Email</mat-label>
-    <input matInput (input)="onFilterChange('email', $event)" placeholder="Email">
-  </mat-form-field>
 
   <mat-form-field appearance="outline" class="search-bar">
     <mat-label>Pesquisar Cnpj</mat-label>
@@ -16,14 +12,6 @@
   </mat-form-field>
 
 
-   <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Pesquisar Ativo</mat-label>
-    <mat-select (selectionChange)="onFilterChange('ativo', $event)" placeholder="Ativo">
-      <mat-option value="">Todos</mat-option>
-      <mat-option value="sim">Sim</mat-option>
-      <mat-option value="não">Não</mat-option>
-    </mat-select>
-  </mat-form-field>
 </div>
 
 

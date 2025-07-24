@@ -1,24 +1,15 @@
-<!-- Barra de pesquisa separada -->
 <div class="barra-pesquisa">
-  <mat-form-field appearance="outline" class="search-bar">
+  <mat-form-field appearance="outline" class="search-bar nome">
     <mat-label>Pesquisar Nome</mat-label>
     <input matInput (input)="onFilterChange('nome', $event)" placeholder="Nome">
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="search-bar">
+  <mat-form-field appearance="outline" class="search-bar marca">
     <mat-label>Pesquisar Marca</mat-label>
     <input matInput (input)="onFilterChange('marca', $event)" placeholder="Marca">
   </mat-form-field>
-
-  <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Pesquisar Ativo</mat-label>
-    <mat-select (selectionChange)="onFilterChange('ativo', $event)" placeholder="Ativo">
-      <mat-option value="">Todos</mat-option>
-      <mat-option value="sim">Sim</mat-option>
-      <mat-option value="não">Não</mat-option>
-    </mat-select>
-  </mat-form-field>
 </div>
+
 
 <div class="info-bar">
   Quantidade de Produtos: <strong>{{ totalProdutosEstoque  }}</strong>

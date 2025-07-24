@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/component/product/product.service';
 import { VendaService } from 'src/app/component/venda/venda.service';
-import { Venda } from 'src/app/component/venda/venda-read/venda.model';
+import { ClienteService } from 'src/app/component/cliente/cliente.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,12 @@ import { Venda } from 'src/app/component/venda/venda-read/venda.model';
 export class HomeComponent implements OnInit {
   qtdProdutos: number = 0;
   qtdVendas: number = 0;
-  qtdPendentes: number = 0;
+  qtdClientes: number = 0;
 
   constructor(
     private productService: ProductService,
-    private vendaService: VendaService
+    private vendaService: VendaService,
+    private clienteService: ClienteService
   ) {}
 
   ngOnInit(): void {
@@ -23,13 +24,10 @@ export class HomeComponent implements OnInit {
       this.qtdProdutos = products.length;
     });
 
-    this.vendaService.read().subscribe(vendas => {
-      this.qtdVendas = vendas.filter(v => v.vndConcluida).length;
-    });
-    
-    this.vendaService.read().subscribe(vendas => {
-      this.qtdVendas = vendas.length;
-      this.qtdPendentes = vendas.filter(v => !v.vndConcluida).length;
-    });
+  this.clienteService.read().subscribe(clientes => {
+  this.qtdClientes = clientes.length;
+});
+
+
   }
 }

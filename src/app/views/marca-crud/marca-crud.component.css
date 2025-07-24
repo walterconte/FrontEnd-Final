@@ -1,7 +1,7 @@
 
 
 button{
-    background-color: #77181e; /* Azul */
+    background-color: #4958af; /* Azul */
     border: none; /* Sem borda */
     color: #f0e4e4; /* Texto branco */
     padding: 15px 32px; /* Espaçamento interno */
@@ -16,7 +16,7 @@ button{
     }
    
     button:hover {
-    background-color: #5f0b10; /* Azul mais escuro ao passar o mouse */
+    background-color: #0c0361; /* Azul mais escuro ao passar o mouse */
     }
    
     button:active {

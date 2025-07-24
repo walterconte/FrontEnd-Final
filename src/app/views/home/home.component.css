@@ -108,5 +108,48 @@
     background-color: #504c4c;
 }
 
+/* ----------------------- */
+/* QUADRADOS DE MÉTRICAS   */
+/* ----------------------- */
 
+.system-info-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.info-card {
+    background-color: #f4f4f4;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    width: 220px;
+    height: 150px;
+}
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #302e2e;
+  color: #fff;
+  width: 160px;
+  height: 130px;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+}
+
+.menu-card i {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.menu-card:hover {
+  background-color: #443e3e;
+  transform: translateY(-4px);
+}

@@ -122,7 +122,9 @@ component:ClienteDeleteComponent
   {
   path: 'marcas',
   component: MarcaCrudComponent
-}
+},
+
+
 
 
 ];

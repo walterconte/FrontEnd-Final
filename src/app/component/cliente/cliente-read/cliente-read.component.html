@@ -1,25 +1,15 @@
 <!-- Barra de pesquisa separada -->
 <div class="barra-pesquisa">
-  <mat-form-field appearance="outline" class="search-bar">
+  <mat-form-field appearance="outline" class="search-bar nome">
     <mat-label>Pesquisar Nome</mat-label>
     <input matInput (input)="onFilterChange('nome', $event)" placeholder="Nome">
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Pesquisar Cpf</mat-label>
+  <mat-form-field appearance="outline" class="search-bar cpf">
+    <mat-label>Pesquisar CPF</mat-label>
     <input matInput  (input)="onFilterChange('cpf', $event)" placeholder="Cpf">
   </mat-form-field>
-
-  <mat-form-field appearance="outline" class="search-bar">
-    <mat-label>Pesquisar Email</mat-label>
-    <input matInput (input)="onFilterChange('email', $event)" placeholder="Email">
-  </mat-form-field>
-
 </div>
-
-
-
-
 
 <div class="mat-elevation-z4">
     <table mat-table [dataSource]="clientes">

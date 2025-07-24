@@ -1,29 +1,41 @@
 <mat-card class="home mat-elevation-z3">
   <div class="card-content">
     <!-- Boas-vindas -->
-    <h2 class="welcome-message">Bem-vindo</h2>
+
+   <div class="menu-options">
+  <a class="menu-card" routerLink="/vendas">
+    <i class="material-icons">point_of_sale</i>
+    <span>Vendas</span>
+  </a>
+  <a class="menu-card" routerLink="/products">
+    <i class="material-icons">inventory_2</i>
+    <span>Produtos</span>
+  </a>
+  <a class="menu-card" routerLink="/suppliers">
+    <i class="material-icons">local_shipping</i>
+    <span>Fornecedores</span>
+  </a>
+
+  <a class="menu-card" routerLink="/clientes">
+    <i class="material-icons">person</i>
+    <span>Clientes</span>
+  </a>
+</div>
 
 
-
-   
-
-    <!-- Menu com botões para navegação -->
-    <div class="menu-options">
-      <button class="btn-primary" routerLink="/vendas"> Vendas</button>
-      <button class="btn-primary" routerLink="/products"> Produtos</button>
-      <button class="btn-primary" routerLink="/suppliers"> Fornecedores</button>
-    </div>
-         <!-- Bloco de informações resumidas do sistema -->
-         <div class="system-info-box">
-          <div class="info-card">
-            <h4>Produtos</h4>
-            <p>{{ qtdProdutos }} cadastrados</p>
-          </div>
-          <div class="info-card">
-            <h4>Vendas</h4>
-            <p>{{ qtdVendas }} realizadas</p>
-          </div>
-        </div>
- 
+       <!-- Bloco de informações resumidas do sistema -->
+<div class="system-info-box">
+  <div class="info-card">
+    <h4>Produtos</h4>
+    <p>{{ qtdProdutos }} cadastrados</p>
   </div>
-</mat-card>
+  <div class="info-card">
+    <h4>Vendas</h4>
+    <p>{{ qtdVendas }} realizadas</p>
+  </div>
+  <div class="info-card">
+    <h4>Clientes</h4>
+    <p>{{ qtdClientes }} cadastrados</p>
+  </div>
+</div>
+

@@ -10,28 +10,8 @@
     <input matInput (input)="onFilterChange('formaPagamento', $event)" placeholder="Forma Pagamento" />
   </mat-form-field>
 
-  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
-    <mat-label>Data da Venda (dd/mm/aaaa)</mat-label>
-    <input matInput
-           placeholder="dd/mm/aaaa"
-           mask="00/00/0000"
-           (input)="onFilterChange('vndDataVenda', $event)" />
-  </mat-form-field>
-
-  <mat-form-field appearance="outline" class="search-bar" style="flex: 1; min-width: 200px;">
-    <mat-label>Concluída?</mat-label>
-    <mat-select (selectionChange)="onFilterChange('vndConcluida', $event)">
-      <mat-option value="">Todos</mat-option>
-      <mat-option value="true">Sim</mat-option>
-      <mat-option value="false">Não</mat-option>
-    </mat-select>
-  </mat-form-field>
 </div>
 
-<!-- Info da quantidade de vendas -->
-<div class="info-bar" style="margin-bottom: 8px;">
-  Quantidade de Vendas: <strong>{{ totalVendas }}</strong>
-</div>
 
 <!-- Tabela de vendas -->
 <div class="mat-elevation-z4">

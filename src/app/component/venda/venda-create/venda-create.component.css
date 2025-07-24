@@ -29,12 +29,12 @@ table.full-width-table td {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #b00020; /* vermelho Material warn */
+  color: #0c0361; /* vermelho Material warn */
   transition: color 0.3s ease;
 }
 
 .item-actions button:hover {
-  color: #7f0000;
+  color: #4958af;
 }
 
 hr {
