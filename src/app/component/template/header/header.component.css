@@ -58,3 +58,16 @@
 .nav-link i {
     font-size: 20px;
 }
+.alert-button .exclamation {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(22, 21, 21);
+  }
+  .alert-button {
+    border: none;          /* remove borda */
+    outline: none;         /* remove contorno ao focar */
+    box-shadow: none;      /* remove sombra se houver */
+    background: transparent; /* opcional: remove fundo se tiver */
+    padding: 0;            /* remove espaços extras */
+  }
+  

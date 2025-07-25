@@ -181,12 +181,10 @@
         Status é obrigatório.
       </mat-error>
     </mat-form-field>
-    <!-- Botões -->
-    <button mat-raised-button color="primary" type="submit">
-      Atualizar
-    </button>
-    <button mat-raised-button type="button" (click)="cancel()">
-      Cancelar
-    </button>
+    
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Atualizar</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+    </div>
   </form>
 </mat-card>
