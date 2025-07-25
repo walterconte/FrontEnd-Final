@@ -44,7 +44,7 @@ hr {
 }
 
 button[mat-raised-button] {
-  background-color: #77181e;
+  background-color: #4958af;
   border: none;
   color: #f0e4e4;
   padding: 15px 32px;
@@ -57,7 +57,7 @@ button[mat-raised-button] {
 }
 
 button[mat-raised-button]:hover {
-  background-color: #5f0b10;
+  background-color: #0c0361;
 }
 
 button[mat-raised-button]:active {
@@ -88,4 +88,16 @@ strong {
   font-size: 1.2rem;
   margin-top: 10px;
   display: inline-block;
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 12px; /* Botões menores */
+  font-size: 15px;   /* Fonte menor */
+  min-width: 100px;
 }

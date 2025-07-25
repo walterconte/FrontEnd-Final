@@ -5,25 +5,18 @@
 
       <!-- Nome -->
     <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
+      <mat-label>Meio de Pagamento</mat-label>
       <input matInput [(ngModel)]="paymentMethod.fpgNome" name="fpgNome" required maxlength="100" #fpgNome="ngModel"
           (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-      <mat-error *ngIf="fpgNome.invalid && fpgNome.touched">Nome é obrigatório</mat-error>
+      <mat-error *ngIf="fpgNome.invalid && fpgNome.touched"> É obrigatório</mat-error>
     </mat-form-field>
 
     <!-- Tipo -->
     <mat-form-field appearance="outline">
-      <mat-label>Tipo</mat-label>
+      <mat-label>Modalidade</mat-label>
       <input matInput [(ngModel)]="paymentMethod.fpgTipo" name="fpgTipo" required maxlength="50" #fpgTipo="ngModel"
           (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-      <mat-error *ngIf="fpgTipo.invalid && fpgTipo.touched">Tipo é obrigatório</mat-error>
-    </mat-form-field>
-
-    <!-- Descrição -->
-    <mat-form-field appearance="outline">
-      <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="paymentMethod.fpgDescricao" name="fpgDescricao" maxlength="200" #fpgDescricao="ngModel">
-      <mat-error *ngIf="fpgDescricao.invalid && fpgDescricao.touched">Descrição é obrigatória</mat-error>
+      <mat-error *ngIf="fpgTipo.invalid && fpgTipo.touched">É obrigatório</mat-error>
     </mat-form-field>
 
     <!-- Parcelamento -->

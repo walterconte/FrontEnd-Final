@@ -38,3 +38,16 @@ button{
     mat-card{
         box-shadow: none;
     }
+      .button-container {
+  display: flex;
+  justify-content: center; /* <-- Centraliza os botões */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+.button-container button {
+  padding: 18px 20px;
+  font-size: 14px;
+  min-width: 100px;
+}

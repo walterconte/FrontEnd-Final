@@ -4,7 +4,7 @@
   <form #clienteForm="ngForm" (ngSubmit)="createCliente()">
     <!-- Nome e CPF -->
     <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
+      <mat-label>*Nome</mat-label>
       <input matInput [(ngModel)]="cliente.cliNome" name="cliNome" required maxlength="100" #cliNome="ngModel"
        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="cliNome.invalid && cliNome.touched">
@@ -52,7 +52,7 @@
     </mat-form-field>
 
 <mat-form-field appearance="outline">
-  <mat-label>Email</mat-label>
+  <mat-label>*Email</mat-label>
   <input matInput [(ngModel)]="cliente.conEmail"
          name="conEmail"
          type="email"
@@ -68,8 +68,25 @@
     <mat-card-title>Endereço</mat-card-title>
     
     <!-- Endereço -->
+     <mat-form-field appearance="outline">
+      <mat-label>*Estado</mat-label>
+      <input matInput [(ngModel)]="cliente.endEstado" name="endEstado" required maxlength="100" #endEstado="ngModel"
+        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endEstado.invalid && endEstado.touched">
+        Estado é obrigatório.
+      </mat-error>
+    </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Rua</mat-label>
+      <mat-label>*Cidade</mat-label>
+      <input matInput [(ngModel)]="cliente.endCidade" name="endCidade" required maxlength="100" #endCidade="ngModel"
+        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endCidade.invalid && endCidade.touched">
+        Cidade é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>*Rua</mat-label>
       <input matInput [(ngModel)]="cliente.endRua" name="endRua" required maxlength="50" #endRua="ngModel"
         (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
       <mat-error *ngIf="endRua.invalid && endRua.touched">
@@ -78,25 +95,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Número</mat-label>
-      <input matInput [(ngModel)]="cliente.endNumero" name="endNumero" required maxlength="15" #endNumero="ngModel"
-         (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="endNumero.invalid && endNumero.touched">
-        Número é obrigatório.
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Cidade</mat-label>
-      <input matInput [(ngModel)]="cliente.endCidade" name="endCidade" required maxlength="100" #endCidade="ngModel"
-        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-      <mat-error *ngIf="endCidade.invalid && endCidade.touched">
-        Cidade é obrigatória.
-      </mat-error>
-    </mat-form-field>
-
- <mat-form-field appearance="outline">
-  <mat-label>CEP</mat-label>
+  <mat-label>*CEP</mat-label>
   <input matInput [(ngModel)]="cliente.endCep"
          name="endCep"
          required
@@ -110,20 +109,23 @@
 </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Estado</mat-label>
-      <input matInput [(ngModel)]="cliente.endEstado" name="endEstado" required maxlength="100" #endEstado="ngModel"
-        (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-      <mat-error *ngIf="endEstado.invalid && endEstado.touched">
-        Estado é obrigatório.
+      <mat-label>*Número</mat-label>
+      <input matInput [(ngModel)]="cliente.endNumero" name="endNumero" required maxlength="15" #endNumero="ngModel"
+         (keypress)="apenasNumeros($event)">
+      <mat-error *ngIf="endNumero.invalid && endNumero.touched">
+        Número é obrigatório.
       </mat-error>
     </mat-form-field>
-
+    
     <!-- Botões -->
-   <button mat-raised-button color="primary" type="submit">
-  Salvar
-</button>
-    <button mat-raised-button type="button" (click)="cancel()">
-      Cancelar
-    </button>
+   <div class="button-container">
+  <button mat-raised-button color="primary" type="submit">
+    Salvar
+  </button>
+  <button mat-raised-button type="button" (click)="cancel()">
+    Cancelar
+  </button>
+</div>
+
   </form>
 </mat-card>

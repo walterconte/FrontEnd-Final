@@ -3,40 +3,48 @@
   <form>
 
     <mat-form-field appearance="outline">
-      <mat-label>Nome do Cliente*</mat-label>
+      <mat-label>Nome do Cliente</mat-label>
       <input matInput [value]="cliente.cliNome" name="cliNome" disabled>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>CPF*</mat-label>
+      <mat-label>CPF</mat-label>
       <input matInput [value]="cliente.cliCpf" name="cliCpf" disabled>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Email*</mat-label>
+      <mat-label>Email</mat-label>
       <input matInput [value]="cliente.conEmail" name="conEmail" disabled>
     </mat-form-field>
 
 
      <mat-form-field appearance="outline">
-      <mat-label>Celular*</mat-label>
+      <mat-label>Celular</mat-label>
       <input matInput [value]="cliente.conCelular" name="conCelular" disabled>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Telefone Comercial*</mat-label>
+      <mat-label>Telefone Comercial</mat-label>
       <input matInput [value]="cliente.conTelefoneComercial" name="conTelefoneComercial" disabled>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Endereço*</mat-label>
+      <mat-label>Endereço</mat-label>
       <input matInput
         [value]="cliente.endRua + ', ' + cliente.endNumero + ', ' + cliente.endCidade + ' - ' + cliente.endEstado + ' (' + cliente.endCep + ')'"
         name="endereco" disabled>
     </mat-form-field>
 
   </form>
+<!-- Botões -->
+<div class="button-container">
+  <button mat-raised-button color="warn" type="button" (click)="deleteCliente()">
+    Excluir
+  </button>
+  <button mat-raised-button color="accent" type="button" (click)="cancel()">
+    Cancelar
+  </button>
+  
+</div>
 
-  <button mat-raised-button (click)="deleteCliente()" color="warn">Excluir</button>
-  <button mat-raised-button (click)="cancel()">Cancelar</button>
 </mat-card>

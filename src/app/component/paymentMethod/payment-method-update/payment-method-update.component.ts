@@ -22,7 +22,7 @@ ngOnInit(): void {
 
     // Se não permitir parcelamento, garante que juros começa em 0
     if (!this.paymentMethod.fpgPermiteParcelamento) {
-      this.paymentMethod.fpgTaxaAdicional = '0';
+      this.paymentMethod.fpgTaxaAdicional = 0;
       this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra
     }
   });
@@ -34,7 +34,6 @@ ngOnInit(): void {
     if (
        !this.paymentMethod.fpgNome.trim() ||
       !this.paymentMethod.fpgTipo.trim() ||
-      !this.paymentMethod.fpgDescricao.trim() ||
       this.paymentMethod.fpgTaxaAdicional === null ||
       this.paymentMethod.fpgTaxaAdicional === undefined
     ) {
@@ -48,15 +47,15 @@ ngOnInit(): void {
         this.paymentMethod.fpgNumMaxParcelas === null ||
         this.paymentMethod.fpgNumMaxParcelas === undefined ||
         this.paymentMethod.fpgNumMaxParcelas < 1 ||
-        this.paymentMethod.fpgNumMaxParcelas > 99
+        this.paymentMethod.fpgNumMaxParcelas > 12
       ) {
-        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
+        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 12).');
         return;
       }
     } else {
       // Se não permitir parcelamento, limpa ou seta padrão para máximo parcelas
       this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra do negócio
-        this.paymentMethod.fpgTaxaAdicional = '0'; 
+        this.paymentMethod.fpgTaxaAdicional = 0; 
     }
   
     // Prosseguir com atualização
@@ -108,7 +107,7 @@ bloquearPasteNumeros(event: ClipboardEvent): void {
 onPermiteParcelamentoChange(): void {
   if (!this.paymentMethod.fpgPermiteParcelamento) {
     this.paymentMethod.fpgNumMaxParcelas = 1;  // ou 0, dependendo da regra
-    this.paymentMethod.fpgTaxaAdicional = '0'; // zera juros ao desabilitar
+    this.paymentMethod.fpgTaxaAdicional = 0; // zera juros ao desabilitar
   }
 }
 }

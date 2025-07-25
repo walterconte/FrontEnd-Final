@@ -11,50 +11,62 @@ import { MatSelectChange } from '@angular/material/select';
 })
 export class ProductReadComponent implements OnInit {
   products!: MatTableDataSource<Product>;
-  totalProdutosEstoque: number = 0; 
-  displayedColumns = ['proId', 'proNome', 'proPrecoVenda', 'proQuantidade', 'marca', 'proAtivo', 'fornecedor', 'status', 'action'];
+  totalProdutosEstoque: number = 0;
 
-  // armazenar os filtros de cada campo (removi categoria)
+  displayedColumns = [
+    'proId',
+    'proNome',
+    'proPrecoVenda',
+    'proQuantidade',
+    'marca',
+    'proAtivo',
+    'fornecedor',
+    'status',
+    'action'
+  ];
+
+  // Filtros aplicáveis
   filters = {
     nome: '',
     marca: '',
     ativo: ''
   };
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.read().subscribe(products => {
       this.products = new MatTableDataSource(products);
-      this.totalProdutosEstoque = products.length;  
+      this.totalProdutosEstoque = products.length;
 
+      // Define o comportamento do filtro personalizado
       this.products.filterPredicate = (data: Product, filter: string) => {
-        // filter é ignorado, pois vamos usar os filtros da variável filters
-
-        // verifica se cada filtro está contido no respectivo campo (tudo em lowercase para evitar case sensitive)
         const nomeMatch = data.proNome.toLowerCase().includes(this.filters.nome.toLowerCase());
-        const marcaMatch = (data.marca?.marNome || '').toLowerCase().includes(this.filters.marca.toLowerCase());
+
+        const marcaNome = data.marca?.marNome || '';
+        const marcaMatch = marcaNome.toLowerCase().includes(this.filters.marca.toLowerCase());
+
         const ativoStr = data.proAtivo ? 'sim' : 'não';
         const ativoMatch = ativoStr.includes(this.filters.ativo.toLowerCase());
 
-        // retornar true só se todos os filtros baterem
         return nomeMatch && marcaMatch && ativoMatch;
       };
     });
   }
 
-  // removi 'categoria' da lista de campos aqui
+  // Atualiza os filtros quando o usuário digita ou seleciona valores
   onFilterChange(field: 'nome' | 'marca' | 'ativo', event: Event | MatSelectChange) {
-    let value: string;
-  
-    if (event instanceof MatSelectChange) {
-      value = event.value;
-    } else {
-      value = (event.target as HTMLInputElement).value;
-    }
-  
+    const value =
+      event instanceof MatSelectChange
+        ? event.value
+        : (event.target as HTMLInputElement).value;
+
     this.filters[field] = value;
-    this.products.filter = '' + Math.random(); // força atualização do filtro
+
+    // Força atualização da tabela (necessário pois MatTableDataSource usa cache)
+    this.products.filter = '' + Math.random();
+
+    // Atualiza a contagem com base nos dados filtrados
     this.totalProdutosEstoque = this.products.filteredData.length;
   }
 }

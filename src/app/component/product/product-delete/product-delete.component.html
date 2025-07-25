@@ -21,15 +21,7 @@
             <input matInput placeholder="" [value]="product.proQuantidade" name="proQuantidade" disabled>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Descrição*</mat-label>
-            <input matInput placeholder="" [value]="product.proDescricao" name="proDescricao" disabled>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Código de Barras*</mat-label>
-            <input matInput placeholder="" [value]="product.proCodigoBarras" name="proCodigoBarras" disabled>
-        </mat-form-field>
 
         
 <mat-form-field appearance="outline">
@@ -52,14 +44,15 @@
     </mat-form-field>
           
       
-    </form>
+    
 
-    <button mat-raised-button (click)="deleteProduct()" color="warn">
-        Excluir
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
-    </button>
-
+  <div class="button-container">
+  <button mat-raised-button color="primary" type="submit">
+    Excluir
+  </button>
+  <button mat-raised-button type="button" (click)="cancel()">
+    Cancelar
+  </button>
+</div>
+</form>
 </mat-card> 

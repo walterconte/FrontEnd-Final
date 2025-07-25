@@ -3,7 +3,7 @@ export interface Supplier {
   forRazaoSocial: string;
   forNomeFantasia: string;
   forCnpj: string; 
-  forAtivo: Boolean;
+  forAtivo: boolean;
 
   // Contato
   conCelular: string;
@@ -16,5 +16,4 @@ export interface Supplier {
   endCidade: string;
   endCep: string;
   endEstado: string;
-
 }

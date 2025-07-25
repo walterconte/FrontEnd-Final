@@ -61,6 +61,8 @@ import { MarcaReadComponent } from './component/marca/marca-read/marca-read.comp
 import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
 import { MarcaDeleteComponent } from './component/marca/marca-delete/marca-delete.component';
 import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component'; 
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -121,6 +123,7 @@ import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
     MatSelectModule,
       MatOptionModule,
         CommonModule,
+        MatGridListModule,
             MatExpansionModule,
                 MatIconModule, 
     MatCheckboxModule,

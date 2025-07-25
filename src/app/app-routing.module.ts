@@ -116,7 +116,7 @@ component:ClienteDeleteComponent
     path:"vendas/delete/:vndId",
     component: VendaDeleteComponent
   },
-  { path: "marca/create", 
+  { path: "marcas/create", 
     component: MarcaCreateComponent 
   },
   {

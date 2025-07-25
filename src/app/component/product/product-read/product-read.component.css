@@ -72,9 +72,11 @@ td {
 }
 
 .search-bar {
-  flex: 1 1 200px; /* Responsivo: mínimo 200px */
-  min-width: 180px;
+  flex: 0 1 300px; /* reduz a largura flexível */
+  min-width: 140px; /* menor largura mínima */
+  max-width: 300px; /* limite superior */
 }
+
 
 /* Aparência do campo de entrada */
 .mat-form-field {

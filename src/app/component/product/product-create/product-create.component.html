@@ -33,19 +33,6 @@
       <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">Quantidade é obrigatório.</mat-error>
     </mat-form-field>
 
-    <!-- Descrição -->
-    <mat-form-field appearance="outline">
-      <mat-label>Descrição</mat-label>
-      <input matInput [(ngModel)]="product.proDescricao" name="proDescricao" maxlength="200">
-    </mat-form-field>
-
-    <!-- Código de Barras -->
-    <mat-form-field appearance="outline">
-      <mat-label>Código de Barras</mat-label>
-      <input matInput maxlength="13" [(ngModel)]="product.proCodigoBarras" name="proCodigoBarras" required #proCodigoBarras="ngModel"
-         (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proCodigoBarras.invalid && proCodigoBarras.touched">Código é brigatório.</mat-error>
-    </mat-form-field>
 
   <!--Selecionar a Marca-->
 <mat-form-field appearance="outline">
@@ -82,8 +69,13 @@
 
 
 
-    <!-- Botões -->
-    <button mat-raised-button color="primary" type="submit">Salvar</button>
-    <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+   <div class="button-container">
+  <button mat-raised-button color="primary" type="submit">
+    Salvar
+  </button>
+  <button mat-raised-button type="button" (click)="cancel()">
+    Cancelar
+  </button>
+</div>
   </form>
 </mat-card>

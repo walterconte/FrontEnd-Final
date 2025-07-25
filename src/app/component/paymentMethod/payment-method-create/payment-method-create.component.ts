@@ -11,51 +11,53 @@ import { Router } from '@angular/router';
 export class PaymentMethodCreateComponent implements OnInit{
 paymentMethod: PaymentMethod = {
   fpgNome:'',
-  fpgDescricao: '',
   fpgTipo: '',
   fpgPermiteParcelamento: false,
   fpgNumMaxParcelas: null,
-  fpgTaxaAdicional: '0' 
+  fpgTaxaAdicional: 0 
 }
 constructor(private paymentMethodService: PaymentMethodService,
   private router:Router){}
 
   ngOnInit(): void {
-      
+        if (!this.paymentMethod.fpgPermiteParcelamento) {
+      this.paymentMethod.fpgTaxaAdicional = 0;
+      this.paymentMethod.fpgNumMaxParcelas = 1; // ou 0, conforme regra
+    }
   }
 
   createPaymentMethod(): void {
+  if (
+    !this.paymentMethod.fpgNome.trim() ||
+    !this.paymentMethod.fpgTipo.trim() ||
+    this.paymentMethod.fpgTaxaAdicional == null || isNaN(this.paymentMethod.fpgTaxaAdicional)
+  ) {
+    this.paymentMethodService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+    return;
+  }
+
+  // Se permitir parcelamento, o número máximo de parcelas é obrigatório e deve estar válido
+  if (this.paymentMethod.fpgPermiteParcelamento) {
     if (
-      !this.paymentMethod.fpgNome.trim() ||
-      !this.paymentMethod.fpgTipo.trim() ||
-      !this.paymentMethod.fpgDescricao.trim() ||
-      this.paymentMethod.fpgTaxaAdicional === '' || this.paymentMethod.fpgTaxaAdicional === null
+      this.paymentMethod.fpgNumMaxParcelas == null ||
+      this.paymentMethod.fpgNumMaxParcelas < 1 ||
+      this.paymentMethod.fpgNumMaxParcelas > 12
     ) {
-      this.paymentMethodService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
+      this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 12).');
       return;
     }
-  
-    // Se permitir parcelamento, o número máximo de parcelas é obrigatório e deve estar válido
-    if (this.paymentMethod.fpgPermiteParcelamento) {
-      if (
-        this.paymentMethod.fpgNumMaxParcelas === null ||
-        this.paymentMethod.fpgNumMaxParcelas === undefined ||
-        this.paymentMethod.fpgNumMaxParcelas < 1 ||
-        this.paymentMethod.fpgNumMaxParcelas > 99
-      ) {
-        this.paymentMethodService.showMessage('Informe um número válido de parcelas (entre 1 e 99).');
-        return;
-      }
-    } else {
-      // Se não permitir parcelamento, define o número máximo de parcelas como 1 (ou 0 se preferir)
-      this.paymentMethod.fpgNumMaxParcelas = 1; // Ou 0, conforme regra do seu negócio
-    }
-  
-    this.paymentMethodService.create(this.paymentMethod).subscribe(() => {
-      this.paymentMethodService.showMessage('Forma de Pagamento criado!');
-      this.router.navigate(['/paymentMethods']);
-    });
+  } else {
+    // Se não permitir parcelamento, seta padrão
+    this.paymentMethod.fpgNumMaxParcelas = 1;
+    this.paymentMethod.fpgTaxaAdicional = 0;
   }
+
+  this.paymentMethodService.create(this.paymentMethod).subscribe(() => {
+    this.paymentMethodService.showMessage('Forma de Pagamento criada!');
+    this.router.navigate(['/paymentMethods']);
+  });
+}
+
 
   cancel(): void {
     this.router.navigate(['/paymentMethods']);
@@ -93,6 +95,12 @@ bloquearPasteNumeros(event: ClipboardEvent): void {
   const regex = /^[0-9]+$/;
   if (!regex.test(texto)) {
     event.preventDefault();
+  }
+}
+onPermiteParcelamentoChange(): void {
+  if (!this.paymentMethod.fpgPermiteParcelamento) {
+    this.paymentMethod.fpgNumMaxParcelas = 1;  // ou 0, dependendo da regra
+    this.paymentMethod.fpgTaxaAdicional = 0; // zera juros ao desabilitar
   }
 }
 }

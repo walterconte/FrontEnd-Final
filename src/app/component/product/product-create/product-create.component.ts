@@ -3,8 +3,8 @@ import { SupplierService } from "../../supplier/supplier.service";
 import { ProductService } from "../product.service";
 import { Supplier } from "../../supplier/supplier-read/supplier.model";
 import { Product } from "../product-read/product.model";
-import { Marca } from "../../marca/marca-read/marca.model";          // import do model Marca
-import { MarcaService } from "../../marca/marca.service"; // import do serviço Marca
+import { Marca } from "../../marca/marca-read/marca.model";
+import { MarcaService } from "../../marca/marca.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -13,14 +13,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  product: Product =
-   {
+  product: Product = {
     proNome: '',
     proPrecoCusto: 0,
     proPrecoVenda: 0,
     proQuantidade: 0,
-    proDescricao: '',
-    proCodigoBarras: '',
     proAtivo: true,
     proDataCadastro: new Date(),
     proDataAtualizacao: undefined,
@@ -29,22 +26,20 @@ export class ProductCreateComponent implements OnInit {
   };
 
   fornecedores: Supplier[] = [];
-  marcas: Marca[] = [];   // <-- Declaração da propriedade marcas
+  marcas: Marca[] = [];
 
   constructor(
     private productService: ProductService,
     private supplierService: SupplierService,
-    private marcaService: MarcaService,  // <-- Injeção do MarcaService
+    private marcaService: MarcaService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    // Busca fornecedores ativos
     this.supplierService.read().subscribe(dados => {
       this.fornecedores = dados.filter(supplier => supplier.forAtivo);
     });
 
-    // Busca marcas ativas
     this.marcaService.read().subscribe(dados => {
       this.marcas = dados.filter(marca => marca.marAtivo);
     });
@@ -56,19 +51,32 @@ export class ProductCreateComponent implements OnInit {
       this.product.proPrecoCusto < 0 ||
       this.product.proPrecoVenda < 0 ||
       this.product.proQuantidade < 0 ||
-      !this.product.proCodigoBarras.trim() ||
-      !this.product.fornecedor ||
-      !this.product.marca ||
-      !this.product.fornecedor.forAtivo ||  
-      !this.product.marca.marAtivo 
+      !this.product.fornecedor?.forId ||
+      !this.product.marca?.marId
     ) {
       this.productService.showMessage('Por favor, preencha todos os campos obrigatórios corretamente!');
       return;
     }
 
-    this.productService.create(this.product).subscribe(() => {
-      this.productService.showMessage('Produto criado!');
-      this.router.navigate(['/products']);
+    const produtoParaEnvio: Product = {
+      ...this.product,
+      fornecedor: { forId: this.product.fornecedor.forId } as Supplier,
+      marca: { marId: this.product.marca.marId } as Marca,
+      proDataCadastro: new Date(),
+      proDataAtualizacao: new Date()
+    };
+
+    console.log('Enviando produto:', produtoParaEnvio); // debug
+
+    this.productService.create(produtoParaEnvio).subscribe({
+      next: () => {
+        this.productService.showMessage('Produto criado!');
+        this.router.navigate(['/products']);
+      },
+      error: (err) => {
+        console.error('Erro ao criar produto:', err);
+        this.productService.showMessage('Erro ao criar produto!');
+      }
     });
   }
 
