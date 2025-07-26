@@ -20,12 +20,15 @@
 
     </form>
 
-    <button mat-raised-button (click)="deleteMarca()" color="warn">
-        Excluir
-    </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
-    </button>
+   <!-- Botões -->
+<div class="button-container">
+  <button mat-raised-button color="warn" type="button" (click)="deleteMarca()">
+    Excluir
+  </button>
+  <button mat-raised-button color="accent" type="button" (click)="cancel()">
+    Cancelar
+  </button>
+</div>
+
 
 </mat-card>

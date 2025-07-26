@@ -27,11 +27,14 @@
         </mat-form-field>
     </form>
 
-    <button mat-raised-button (click)="deletePaymentMethod()" color="warn">
-        Excluir
+    <!-- Botões -->
+<div class="button-container">
+    <button mat-raised-button color="warn" type="button" (click)="deletePaymentMethod()">
+      Excluir
     </button>
-   
-    <button mat-raised-button (click)="cancel()">
-        Cancelar
+    <button mat-raised-button color="accent" type="button" (click)="cancel()">
+      Cancelar
     </button>
+  </div>
+  
 </mat-card>

@@ -25,6 +25,10 @@ import { VendaUpdateComponent } from './component/venda/venda-update/venda-updat
 import { VendaDeleteComponent } from './component/venda/venda-delete/venda-delete.component';
 import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
 import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
+import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
+import { MarcaDeleteComponent } from './component/marca/marca-delete/marca-delete.component';
+
+
 
 // Definição das rotas da aplicação
 const routes: Routes = [
@@ -125,7 +129,15 @@ component:ClienteDeleteComponent
 },
 
 
+{
+  path: 'marcas/update/:id', // A URL deve conter o ID da marca
+  component: MarcaUpdateComponent // O componente que irá lidar com a atualização
+},
 
+{
+  path: 'marcas/delete/:id', // A URL vai conter o id da marca
+  component: MarcaDeleteComponent // Componente responsável pela exclusão
+},
 
 ];
 
