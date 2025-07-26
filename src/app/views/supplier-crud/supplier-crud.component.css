@@ -9,7 +9,7 @@ button{
     text-decoration: none; /* Remove sublinhado */
     display: inline-block; /* Permite definir largura e altura */
     font-size: 16px; /* Tamanho da fonte */
-    margin: 4px 2px; /* Margem */
+    margin: 55px 2px 20px 0px; /* Margem */
     cursor: pointer; /* Muda o cursor ao passar o mouse */
     border-radius: 8px; /* Bordas arredondadas */
     transition: background-color 0.3s, transform 0.2s; /* Transição suave */
