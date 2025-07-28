@@ -48,7 +48,7 @@ export class SupplierCreateComponent implements OnInit {
     'Minas Gerais': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Betim', 'Contagem'],
     'Pará': ['Belém', 'Ananindeua', 'Santarém', 'Marabá', 'Parauapebas'],
     'Paraíba': ['João Pessoa', 'Campina Grande', 'Santa Rita', 'Patos', 'Bayeux'],
-    'Paraná': ['Curitiba', 'Londrina', 'Maringá', 'Cascavel', 'Ponta Grossa'],
+    'Paraná': ['Curitiba', 'Londrina', 'Maringá', 'Cascavel', 'Ponta Grossa', 'Cambé'],
     'Pernambuco': ['Recife', 'Olinda', 'Jaboatão dos Guararapes', 'Caruaru', 'Petrolina'],
     'Piauí': ['Teresina', 'Parnaíba', 'Picos', 'Floriano', 'Campo Maior'],
     'Rio de Janeiro': ['Rio de Janeiro', 'Niterói', 'Duque de Caxias', 'Campos dos Goytacazes', 'Nova Iguaçu'],
