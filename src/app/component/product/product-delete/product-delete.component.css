@@ -1,53 +1,57 @@
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  margin-top: 50px; /* Margem superior para afastar o título */
+  text-align: center;
+  color: #333; /* Cor do título */
+}
 
-form{
-    display: flex;
-    flex-direction: column;
+.delete-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-row mat-form-field {
+  flex: 1;
+  min-width: 250px;
 }
 
 .button-container {
-    display: flex;
-    justify-content:flex-start; /* Espaça os botões */
-    margin-top: 20px; /* Espaço acima dos botões */
-    gap: 10px;
-}
-
-
-button{
-    background-color: #4958af; /* Azul */
-    border: none; /* Sem borda */
-    color: #f0e4e4; /* Texto branco */
-    padding: 15px 32px; /* Espaçamento interno */
-    text-align: center; /* Centraliza o texto */
-    text-decoration: none; /* Remove sublinhado */
-    display: inline-block; /* Permite definir largura e altura */
-    font-size: 16px; /* Tamanho da fonte */
-    margin: 4px 2px; /* Margem */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-    border-radius: 8px; /* Bordas arredondadas */
-    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
-    }
-   
-    button:hover {
-    background-color: #0c0361; /* Azul mais escuro ao passar o mouse */
-    }
-   
-    button:active {
-    transform: scale(0.95); /* Efeito de pressionar */
-    }
-
-    mat-card{
-        box-shadow: none;
-    }
-      .button-container {
   display: flex;
-  justify-content: center; /* <-- Centraliza os botões */
+  justify-content: flex-start;
   gap: 10px;
   margin-top: 20px;
 }
 
-
 .button-container button {
-  padding: 18px 20px;
+  background-color: #4958af;
+  color: #f0e4e4;
+  padding: 15px 32px;
   font-size: 14px;
-  min-width: 100px;
+  min-width: 120px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-container button:hover {
+  background-color: #0c0361;
+}
+
+.button-container button:active {
+  transform: scale(0.95);
+}
+
+mat-card {
+  box-shadow: none;
+  padding: 24px;
 }

@@ -3,114 +3,76 @@
 
   <form #produtoForm="ngForm" (ngSubmit)="updateProduct()">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Nome do Produto*</mat-label>
-      <input matInput
-             [(ngModel)]="product.proNome"
-             name="proNome"
-             required
-             #proNome="ngModel"
-             maxlength="100">
-      <mat-error *ngIf="proNome.invalid && proNome.touched">
-        Nome do Produto é obrigatório.
-      </mat-error>
-    </mat-form-field>
+    <!-- Nome e Preço de Custo lado a lado -->
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Produto*</mat-label>
+        <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel">
+        <mat-error *ngIf="proNome.invalid && proNome.touched">Nome do Produto é obrigatório.</mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Preço do Custo (R$)*</mat-label>
-      <input matInput
-             type="number"
-             [(ngModel)]="product.proPrecoCusto"
-             name="proPrecoCusto"
-             required
-             #proPrecoCusto="ngModel"
-             min="0"
-           (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">
-        Preço do Custo é obrigatório e não pode ser negativo.
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Preço de Custo (R$)*</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" required #proPrecoCusto="ngModel" min="0" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">Preço do Custo é obrigatório e não pode ser negativo.</mat-error>
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Preço de Venda (R$)*</mat-label>
-      <input matInput
-             type="number"
-             [(ngModel)]="product.proPrecoVenda"
-             name="proPrecoVenda"
-             required
-             #proPrecoVenda="ngModel"
-             min="0"
-            (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">
-        Preço de Venda é obrigatório e não pode ser negativo.
-      </mat-error>
-    </mat-form-field>
+    <!-- Preço de Venda e Quantidade lado a lado -->
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Preço de Venda (R$)*</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" required #proPrecoVenda="ngModel" min="0" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">Preço de Venda é obrigatório e não pode ser negativo.</mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Quantidade*</mat-label>
-      <input matInput
-             type="number"
-             [(ngModel)]="product.proQuantidade"
-             name="proQuantidade"
-             required
-             #proQuantidade="ngModel"
-             min="0"
-            (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">
-        Quantidade é obrigatória e não pode ser negativa.
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Quantidade*</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proQuantidade" name="proQuantidade" required #proQuantidade="ngModel" min="0" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">Quantidade é obrigatória e não pode ser negativa.</mat-error>
+      </mat-form-field>
+    </div>
 
+    <!-- Marca e Fornecedor lado a lado -->
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Marca*</mat-label>
+        <mat-select [(ngModel)]="selectedMarcaId" name="marca" required #marca="ngModel">
+          <mat-option *ngFor="let marca of marcas" [value]="marca.marId" [disabled]="!marca.marAtivo">
+            {{ marca.marNome }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="marca.invalid && marca.touched">Marca é obrigatória.</mat-error>
+      </mat-form-field>
 
+      <mat-form-field appearance="outline">
+        <mat-label>Fornecedor*</mat-label>
+        <mat-select [(ngModel)]="selectedFornecedorId" name="fornecedor" required #fornecedor="ngModel">
+          <mat-option *ngFor="let f of fornecedores" [value]="f.forId" [disabled]="!f.forAtivo">
+            {{ f.forRazaoSocial }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="fornecedor.invalid && fornecedor.touched">Fornecedor é obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
 
-<mat-form-field appearance="outline">
-  <mat-label>Marca*</mat-label>
-  <mat-select [(ngModel)]="selectedMarcaId" name="marca" required #marca="ngModel">
-  <mat-option *ngFor="let marca of marcas" [value]="marca.marId" [disabled]="!marca.marAtivo">
-  {{ marca.marNome }}
-</mat-option>
-  </mat-select>
-  <mat-error *ngIf="marca.invalid && marca.touched">
-    Marca é obrigatória.
-  </mat-error>
-</mat-form-field>
+    <!-- Status do Produto -->
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status do Produto</mat-label>
+        <mat-select [(ngModel)]="product.proAtivo" name="proAtivo" required #proAtivo="ngModel">
+          <mat-option [value]="true">Ativo</mat-option>
+          <mat-option [value]="false">Inativo</mat-option>
+        </mat-select>
+        <mat-error *ngIf="proAtivo.invalid && proAtivo.touched">Status é obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
 
-
-<mat-form-field appearance="outline">
-  <mat-label>Fornecedor*</mat-label>
-  <mat-select [(ngModel)]="selectedFornecedorId" name="fornecedor" required #fornecedor="ngModel">
-    <mat-option *ngFor="let f of fornecedores" [value]="f.forId" [disabled]="!f.forAtivo">
-      {{ f.forRazaoSocial }}
-    </mat-option>
-  </mat-select>
-  <mat-error *ngIf="fornecedor.invalid && fornecedor.touched">
-    Fornecedor é obrigatório.
-  </mat-error>
-</mat-form-field>
-
-
-    <mat-form-field appearance="outline">
-      <mat-label>Status do Produto</mat-label>
-      <mat-select
-        [(ngModel)]="product.proAtivo"
-        name="proAtivo"
-        required
-        #proAtivo="ngModel">
-        <mat-option [value]="true">Ativo</mat-option>
-        <mat-option [value]="false">Inativo</mat-option>
-      </mat-select>
-      <mat-error *ngIf="proAtivo.invalid && proAtivo.touched">
-        Status é obrigatório.
-      </mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" >
-      Atualizar
-    </button>
-
-    <button mat-raised-button type="button" (click)="cancel()">
-      Cancelar
-    </button>
+    <!-- Botões -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Atualizar</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+    </div>
 
   </form>
 </mat-card>

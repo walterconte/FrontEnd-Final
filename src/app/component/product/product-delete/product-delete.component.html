@@ -1,58 +1,57 @@
 <mat-card>
-    <mat-card-title>Excluir Produto</mat-card-title>
-    <form>
-        <mat-form-field appearance="outline">
-            <mat-label>Nome do Produto*</mat-label>
-            <input matInput placeholder="" [value]="product.proNome" name="proNome" disabled>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline"> 
-            <mat-label>Preço de Custo(R$)*</mat-label>
-            <input matInput placeholder="" [value]="product.proPrecoCusto" name="proPrecoCusto" disabled>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Preço de Venda(R$)*</mat-label>
-            <input matInput placeholder="" [value]="product.proPrecoVenda" name="proPrecoVenda" disabled>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Quantidade*</mat-label>
-            <input matInput placeholder="" [value]="product.proQuantidade" name="proQuantidade" disabled>
-        </mat-form-field>
-
-
-
-        
-<mat-form-field appearance="outline">
-  <mat-label>Marca*</mat-label>
-  <input matInput [value]="product.marca?.marNome" disabled>
-</mat-form-field>
-
-
-
-
+  <mat-card-title>Excluir Produto</mat-card-title>
+  <form class="delete-form">
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Produto*</mat-label>
+        <input matInput [value]="product.proNome" name="proNome" disabled>
+      </mat-form-field>
 
       <mat-form-field appearance="outline">
-  <mat-label>Fornecedor*</mat-label>
-  <input matInput [value]="product.fornecedor?.forNomeFantasia" disabled>
-</mat-form-field>
-        
-        <mat-form-field appearance="outline">
-      <mat-label>Ativo</mat-label>
-      <input matInput [value]="product.proAtivo ? 'Ativo' : 'Inativo'" name="proAtivo" disabled>
-    </mat-form-field>
-          
-      
-    
+        <mat-label>Preço de Custo(R$)*</mat-label>
+        <input matInput [value]="product.proPrecoCusto" name="proPrecoCusto" disabled>
+      </mat-form-field>
+    </div>
 
-  <div class="button-container">
-  <button mat-raised-button color="primary" type="submit">
-    Excluir
-  </button>
-  <button mat-raised-button type="button" (click)="cancel()">
-    Cancelar
-  </button>
-</div>
-</form>
-</mat-card> 
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Preço de Venda(R$)*</mat-label>
+        <input matInput [value]="product.proPrecoVenda" name="proPrecoVenda" disabled>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Quantidade*</mat-label>
+        <input matInput [value]="product.proQuantidade" name="proQuantidade" disabled>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Marca*</mat-label>
+        <input matInput [value]="product.marca?.marNome" disabled>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fornecedor*</mat-label>
+        <input matInput [value]="product.fornecedor?.forNomeFantasia" disabled>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ativo</mat-label>
+        <input matInput [value]="product.proAtivo ? 'Ativo' : 'Inativo'" disabled>
+      </mat-form-field>
+    </div>
+
+    <!-- Botões dentro do <form> -->
+    <div class="button-container">
+      <button mat-raised-button color="warn" type="button" (click)="deleteProduct()">
+        Excluir
+      </button>
+      <button mat-raised-button color="accent" type="button" (click)="cancel()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</mat-card>

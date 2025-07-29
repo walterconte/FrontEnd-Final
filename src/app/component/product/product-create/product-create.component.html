@@ -2,80 +2,80 @@
   <mat-card-title>Novo Produto</mat-card-title>
 
   <form #produtoForm="ngForm" (ngSubmit)="createProduct()">
-    <!-- Nome -->
-    <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel">
-      <mat-error *ngIf="proNome.invalid && proNome.touched">Nome é obrigatório.</mat-error>
-    </mat-form-field>
+    
+    <!-- Nome e Preço de Custo lado a lado -->
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="product.proNome" name="proNome" required maxlength="100" #proNome="ngModel">
+        <mat-error *ngIf="proNome.invalid && proNome.touched">Nome é obrigatório.</mat-error>
+      </mat-form-field>
 
-    <!-- Preço de Custo -->
-    <mat-form-field appearance="outline">
-      <mat-label>Preço de Custo (R$)</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" required #proPrecoCusto="ngModel"
-           (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">Obrigatório.</mat-error>
-    </mat-form-field>
-
-    <!-- Preço de Venda -->
-    <mat-form-field appearance="outline">
-      <mat-label>Preço de Venda (R$)</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" required #proPrecoVenda="ngModel"
-          (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">Obrigatório.</mat-error>
-    </mat-form-field>
-
-    <!-- Quantidade -->
-    <mat-form-field appearance="outline">
-      <mat-label>Quantidade</mat-label>
-      <input matInput type="number" [(ngModel)]="product.proQuantidade" name="proQuantidade" required #proQuantidade="ngModel"
-            (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">Quantidade é obrigatório.</mat-error>
-    </mat-form-field>
-
-
-  <!--Selecionar a Marca-->
 <mat-form-field appearance="outline">
-  <mat-label>Marca</mat-label>
-  <mat-select [(ngModel)]="product.marca" name="marca" required #marcaNgModel="ngModel">
-  <mat-option *ngFor="let marca of marcas" [value]="marca" [disabled]="!marca.marAtivo">
-  {{ marca.marNome }}
-</mat-option>
-  </mat-select>
-  <mat-error *ngIf="marcaNgModel.invalid && marcaNgModel.touched">Marca é obrigatório.</mat-error>
-</mat-form-field>
+        <mat-label>Quantidade</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proQuantidade" name="proQuantidade" required #proQuantidade="ngModel" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proQuantidade.invalid && proQuantidade.touched">Quantidade é obrigatório.</mat-error>
+      </mat-form-field>
 
-<!--Selecionar o Fornecedor-->
-<mat-form-field appearance="outline">
-  <mat-label>Fornecedor</mat-label>
-  <mat-select [(ngModel)]="product.fornecedor" name="fornecedor" required #fornecedorNgModel="ngModel">
-    <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor"  [disabled]="!fornecedor.forAtivo">
-      {{ fornecedor.forNomeFantasia }}
-    </mat-option>
-  </mat-select>
-  <mat-error *ngIf="fornecedorNgModel.invalid && fornecedorNgModel.touched">Fornecedor é obrigatório.</mat-error>
-</mat-form-field>
+    </div>
 
+    <!-- Preço de Venda e Quantidade lado a lado -->
+    <div class="form-row">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Preço de Custo (R$)</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proPrecoCusto" name="proPrecoCusto" required #proPrecoCusto="ngModel" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proPrecoCusto.invalid && proPrecoCusto.touched">Obrigatório.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Preço de Venda (R$)</mat-label>
+        <input matInput type="number" [(ngModel)]="product.proPrecoVenda" name="proPrecoVenda" required #proPrecoVenda="ngModel" (keypress)="apenasNumeros($event)">
+        <mat-error *ngIf="proPrecoVenda.invalid && proPrecoVenda.touched">Obrigatório.</mat-error>
+      </mat-form-field>
+
+      
+    </div>
+
+    <!-- Marca e Fornecedor lado a lado -->
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="product.marca" name="marca" required #marcaNgModel="ngModel">
+          <mat-option *ngFor="let marca of marcas" [value]="marca" [disabled]="!marca.marAtivo">
+            {{ marca.marNome }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="marcaNgModel.invalid && marcaNgModel.touched">Marca é obrigatório.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fornecedor</mat-label>
+        <mat-select [(ngModel)]="product.fornecedor" name="fornecedor" required #fornecedorNgModel="ngModel">
+          <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor" [disabled]="!fornecedor.forAtivo">
+            {{ fornecedor.forNomeFantasia }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="fornecedorNgModel.invalid && fornecedorNgModel.touched">Fornecedor é obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
 
     <!-- Status do Produto -->
-    <mat-form-field appearance="outline">
-      <mat-label>Status do Produto</mat-label>
-      <mat-select [(ngModel)]="product.proAtivo" name="proAtivo" required #proAtivo="ngModel">
-        <mat-option [value]="true">Ativo</mat-option>
-        <mat-option [value]="false">Inativo</mat-option>
-      </mat-select>
-      <mat-error *ngIf="proAtivo.invalid && proAtivo.touched">Obrigatório.</mat-error>
-    </mat-form-field>
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status do Produto</mat-label>
+        <mat-select [(ngModel)]="product.proAtivo" name="proAtivo" required #proAtivo="ngModel">
+          <mat-option [value]="true">Ativo</mat-option>
+          <mat-option [value]="false">Inativo</mat-option>
+        </mat-select>
+        <mat-error *ngIf="proAtivo.invalid && proAtivo.touched">Obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
 
-
-
-   <div class="button-container">
-  <button mat-raised-button color="primary" type="submit">
-    Salvar
-  </button>
-  <button mat-raised-button type="button" (click)="cancel()">
-    Cancelar
-  </button>
-</div>
+    <!-- Botões -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit">Salvar</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+    </div>
   </form>
 </mat-card>
