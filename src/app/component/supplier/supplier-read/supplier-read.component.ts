@@ -43,7 +43,7 @@ export class SupplierReadComponent {
       };
     });
   }
-  onFilterChange(field: 'nomeFantasia' | 'cnpj' | 'email' | 'ativo', event: Event | MatSelectChange) {
+  onFilterChange(field: 'nomeFantasia' | 'cnpj', event: Event | MatSelectChange) {
     let value: string;
   
     if (event instanceof MatSelectChange) {
