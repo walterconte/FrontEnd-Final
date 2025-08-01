@@ -1,29 +1,37 @@
+/* Título do mat-card */
 mat-card-title {
   font-size: 24px;
   font-weight: 600;
   color: #333;
   display: block;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  text-align: center;
+  margin-top: 20px;     /* Empurra o título para baixo */
+  margin-bottom: 10px;  /* Separação do primeiro campo */
+  text-align: center;   /* Centraliza o texto */
 }
 
 /* Layout geral do formulário */
 form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 20px;
   margin-top: 20px;
 }
 
-/* Todos os campos lado a lado automaticamente */
-form mat-form-field {
-  flex: 1 1 calc(50% - 16px); /* Dois campos por linha com espaçamento */
+/* Linhas flexíveis que agrupam os campos */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Cada campo ocupa cerca de 45% da linha */
+.form-row mat-form-field {
+  flex: 1 1 45%;
   min-width: 250px;
 }
 
-/* Campos que devem ocupar a linha toda (opcional via classe) */
-form mat-form-field.full-width {
+/* Para campos que ocupam linha inteira (ex: CNPJ ou Email sozinho) */
+.form-row.full-width mat-form-field {
   flex: 1 1 100%;
 }
 
@@ -32,15 +40,13 @@ form mat-form-field.full-width {
   display: flex;
   gap: 12px;
   margin-top: 20px;
-  width: 100%;
-    justify-content: center; /* <-- centraliza os botões */
-
+  justify-content: center;   /* Centraliza os botões */
 }
 
 /* Estilo dos botões */
 .button-container button {
- padding: 18px 20px; 
-   font-size: 14px;
+  padding: 18px 20px; 
+  font-size: 14px;
   min-width: 120px;
   border-radius: 8px;
   background-color: #4958af;
@@ -66,10 +72,10 @@ mat-card {
   border-radius: 8px;
 }
 
-/* Responsividade: empilha campos em telas menores */
+/* Responsividade: empilha os campos em telas menores */
 @media (max-width: 768px) {
-  form mat-form-field {
-    flex: 1 1 100%;
+  .form-row mat-form-field {
+    flex: 1 1 100%;  /* Faz os campos ocuparem 100% da linha em telas menores */
   }
 
   .button-container {
@@ -78,9 +84,11 @@ mat-card {
   }
 
   .button-container button {
-    width: 100%;
+    width: 100%;  /* Botões ocupam toda a largura em telas pequenas */
   }
 }
+
+/* Estilo para o título em telas pequenas */
 form > h2,
 form > mat-card-title {
   flex: 1 1 100%;
