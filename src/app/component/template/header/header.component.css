@@ -9,13 +9,10 @@
     left: 0;
     right: 0;
     z-index: 1000; 
-    background-color: #9cabce  ;
+    background-color: #1844aa;
     color: white;
     padding: 0 16px;
-    display: flex;
-  }
-
-   
+}
 
 /* Nome da marca estilizado */
 .brand-name {
@@ -33,7 +30,7 @@
 }
 
 .brand-name span {
-    color: #141111; /* Vermelho para destacar o "" */
+    color: #141111; 
 }
 
 /* Espaço flexível para empurrar os itens da direita */
@@ -48,35 +45,38 @@
 }
 
 .nav-link {
-    color: rgb(32, 31, 31);
+    color: rgb(32, 31, 31); /* Cor inicial */
     text-decoration: none;
     font-size: 16px; /* Tamanho de fonte um pouco maior */
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 8px; /* Espaço entre o ícone e o texto */
-    transition: color 0.2s, transform 0.2s;
+    transition: color 0.4s ease, transform 0.2s; /* Transição suave para cor e transformação */
 }
 
 .nav-link:hover {
-    color: #1e0441; /* Mude a cor do texto no hover para a cor de destaque */
-    transform: translateY(-2px); /* Efeito sutil de levantar */
+    color: #1e0441; /* Cor que o link vai ficar quando o mouse passar sobre ele */
+    transform: translateY(-2px); /* Efeito sutil de levantar o link */
 }
 
 /* Ícones */
 .nav-link i {
     font-size: 20px;
 }
+
+/* Estilo do botão de alerta */
 .alert-button .exclamation {
     font-weight: bold;
     font-size: 20px;
     color: rgb(22, 21, 21);
-  }
-  .alert-button {
-    border: none;          /* remove borda */
-    outline: none;         /* remove contorno ao focar */
-    box-shadow: none;      /* remove sombra se houver */
+}
+
+/* Estilização dos botões de alerta */
+.alert-button {
+    border: none; /* remove borda */
+    outline: none; /* remove contorno ao focar */
+    box-shadow: none; /* remove sombra se houver */
     background: transparent; /* opcional: remove fundo se tiver */
-    padding: 0;            /* remove espaços extras */
-  }
-  
+    padding: 0; /* remove espaços extras */
+}

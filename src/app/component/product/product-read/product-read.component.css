@@ -1,10 +1,10 @@
 /* Container com fundo escuro e cantos arredondados */
 .mat-elevation-z4 {
-  background-color: #2F4F4F;
+  background-color: #505ca0;
   border-radius: 8px;
   padding: 16px;  /* aumentei um pouco o padding para mais espaço */
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(5, 243, 192, 0.4);
+  box-shadow: 0 4px 12px rgba(4, 104,235, 0.6);
 
 }
 
@@ -37,7 +37,7 @@ th {
 
 /* Efeito zebra: linhas pares com fundo levemente diferente */
 tr:nth-child(even) td {
-  background-color: #2e2e3a;
+  background-color: #505ca0;
 }
 
 /* Ações: Editar */

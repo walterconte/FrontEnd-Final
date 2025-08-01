@@ -1,10 +1,11 @@
 .home {
     background: transparent; /* remove o fundo cinza */
-    padding: 20px;
+    padding: 80px 20px 50px 20px;
     text-align: center;
     max-width: 900px;
-    margin: 40px auto;
+    margin: 100px auto;
     box-shadow: none; /* remove sombra externa */
+    color: #e0e0e0;
 }
 
 .card-content {
@@ -117,7 +118,7 @@
 }
 
 .info-card {
-    background-color: #f4f4f4;
+    background-color: #647e7b;
     border-radius: 14px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     width: 220px;
@@ -130,7 +131,7 @@
   justify-content: center;
   text-decoration: none;
   background-color: #302e2e;
-  color: #fff;
+  color: #768ab4;
   width: 160px;
   height: 130px;
   padding: 16px;
