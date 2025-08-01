@@ -47,8 +47,8 @@ form {
 
 /* Estilo dos botões */
 .button-container button {
-  padding: 12px 20px;
-  font-size: 14px;
+ padding: 18px 20px; 
+   font-size: 14px;
   min-width: 120px;
   border-radius: 8px;
   background-color: #4958af;
@@ -89,3 +89,10 @@ mat-card {
     width: 100%;
   }
 }
+.button-container {
+  display: flex;
+  justify-content: center;   /* <-- Esta linha centraliza os botões */
+  gap: 12px;
+  margin-top: 20px;
+}
+

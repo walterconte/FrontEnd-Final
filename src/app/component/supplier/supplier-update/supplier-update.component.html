@@ -94,34 +94,21 @@
         <mat-card-title>Endereço</mat-card-title>
 
     <!-- Endereço -->
+     
     <mat-form-field appearance="outline">
-      <mat-label>Rua</mat-label>
+      <mat-label>Estado</mat-label>
       <input matInput
-             [(ngModel)]="supplier.endRua"
-             name="endRua"
+             [(ngModel)]="supplier.endEstado"
+             name="endEstado"
              required
-             #endRua="ngModel"
-             maxlength="50"
-      (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-             <mat-error *ngIf="endRua.invalid && endRua.touched">
-        Rua é obrigatória.
+             #endEstado="ngModel"
+             maxlength="100"
+          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+      <mat-error *ngIf="endEstado.invalid && endEstado.touched">
+        Estado é obrigatório.
       </mat-error>
     </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Número</mat-label>
-      <input matInput
-             [(ngModel)]="supplier.endNumero"
-             name="endNumero"
-             required
-             #endNumero="ngModel"
-             maxlength="15"
-            (keypress)="apenasNumeros($event)">
-      <mat-error *ngIf="endNumero.invalid && endNumero.touched">
-        Número é obrigatório.
-      </mat-error>
-    </mat-form-field>
-
+    
     <mat-form-field appearance="outline">
       <mat-label>Cidade</mat-label>
       <input matInput
@@ -136,7 +123,22 @@
       </mat-error>
     </mat-form-field>
 
+
     <mat-form-field appearance="outline">
+      <mat-label>Rua</mat-label>
+      <input matInput
+             [(ngModel)]="supplier.endRua"
+             name="endRua"
+             required
+             #endRua="ngModel"
+             maxlength="50"
+      (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
+             <mat-error *ngIf="endRua.invalid && endRua.touched">
+        Rua é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+<mat-form-field appearance="outline">
       <mat-label>CEP</mat-label>
       <input matInput
              [(ngModel)]="supplier.endCep"
@@ -150,20 +152,26 @@
         CEP é obrigatório.
       </mat-error>
     </mat-form-field>
-
+    
     <mat-form-field appearance="outline">
-      <mat-label>Estado</mat-label>
+      <mat-label>Número</mat-label>
       <input matInput
-             [(ngModel)]="supplier.endEstado"
-             name="endEstado"
+             [(ngModel)]="supplier.endNumero"
+             name="endNumero"
              required
-             #endEstado="ngModel"
-             maxlength="100"
-          (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)">
-      <mat-error *ngIf="endEstado.invalid && endEstado.touched">
-        Estado é obrigatório.
+             #endNumero="ngModel"
+             maxlength="15"
+            (keypress)="apenasNumeros($event)">
+      <mat-error *ngIf="endNumero.invalid && endNumero.touched">
+        Número é obrigatório.
       </mat-error>
     </mat-form-field>
+
+   
+
+    
+
+ 
 
      <mat-card-title>Status</mat-card-title>
 

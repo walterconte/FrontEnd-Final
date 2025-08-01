@@ -1,53 +1,54 @@
-
-form{
-    display: flex;
-    flex-direction: column;
-}
-
-.button-container {
-    display: flex;
-    justify-content:flex-start; /* Espaça os botões */
-    margin-top: 20px; /* Espaço acima dos botões */
-    gap: 10px;
-}
-
-
-button{
-    background-color: #4958af; /* Azul */
-    border: none; /* Sem borda */
-    color: #f0e4e4; /* Texto branco */
-    padding: 15px 32px; /* Espaçamento interno */
-    text-align: center; /* Centraliza o texto */
-    text-decoration: none; /* Remove sublinhado */
-    display: inline-block; /* Permite definir largura e altura */
-    font-size: 16px; /* Tamanho da fonte */
-    margin: 4px 2px; /* Margem */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-    border-radius: 8px; /* Bordas arredondadas */
-    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
-    }
-   
-    button:hover {
-    background-color: #0c0361; /* Azul mais escuro ao passar o mouse */
-    }
-   
-    button:active {
-    transform: scale(0.95); /* Efeito de pressionar */
-    }
-
-    mat-card{
-        box-shadow: none;
-    }
-      .button-container {
+/* Centraliza verticalmente o card e dá espaçamento no topo */
+mat-card {
+  margin-top: 60px; /* Espaço do topo */
+  padding: 30px;
   display: flex;
-  justify-content: center; /* <-- Centraliza os botões */
-  gap: 10px;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: none;
 }
 
+/* Centraliza o título */
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px; /* Espaço abaixo do título */
+}
+
+/* Estiliza o formulário para centralizar os campos */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px; /* Limita a largura para não ficar muito largo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Botões */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
 
 .button-container button {
   padding: 18px 20px;
   font-size: 14px;
   min-width: 100px;
+  background-color: #4958af;
+  border: none;
+  color: #f0e4e4;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0c0361;
+}
+
+button:active {
+  transform: scale(0.95);
 }

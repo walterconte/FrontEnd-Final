@@ -1,55 +1,81 @@
-
-form{
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
 }
 
+/* Campos lado a lado */
+form mat-form-field {
+  flex: 1 1 calc(50% - 16px);
+  min-width: 250px;
+}
+
+/* Caso queira algum campo ocupar linha toda (só adicionar class="full-width" no HTML) */
+form mat-form-field.full-width {
+  flex: 1 1 100%;
+}
+
+/* Título ocupa linha inteira e fica centralizado */
+mat-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Estilo geral do mat-card */
+mat-card {
+  box-shadow: none;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+/* Botões centralizados e lado a lado */
 .button-container {
-    display: flex;
-    justify-content:flex-start; /* Espaça os botões */
-    margin-top: 20px; /* Espaço acima dos botões */
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
 }
 
+/* Estilo dos botões */
+.button-container button {
+ padding: 18px 20px; 
+   font-size: 15px;
+  min-width: 120px;
+  border-radius: 8px;
+  background-color: #4958af;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-button{
-    background-color: #4958af; /* Azul */
-    border: none; /* Sem borda */
-    color: #f0e4e4; /* Texto branco */
-    padding: 15px 32px; /* Espaçamento interno */
-    text-align: center; /* Centraliza o texto */
-    text-decoration: none; /* Remove sublinhado */
-    display: inline-block; /* Permite definir largura e altura */
-    font-size: 16px; /* Tamanho da fonte */
-    margin: 4px 2px; /* Margem */
-    cursor: pointer; /* Muda o cursor ao passar o mouse */
-    border-radius: 8px; /* Bordas arredondadas */
-    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
-    }
-   
-    button:hover {
-    background-color: #0c0361; /* Azul mais escuro ao passar o mouse */
-    }
-   
-    button:active {
-    transform: scale(0.95); /* Efeito de pressionar */
-    }
+.button-container button:hover {
+  background-color: #0c0361;
+}
 
-    mat-card{
-        box-shadow: none;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center; /* <-- Centraliza os botões */
-        gap: 10px;
-        margin-top: 20px;
-      }
-      
-      
-      .button-container button {
-        padding: 18px 20px;
-        font-size: 14px;
-        min-width: 100px;
-      }
-      
-    
+.button-container button:active {
+  transform: scale(0.95);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  form mat-form-field {
+    flex: 1 1 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-container button {
+    width: 100%;
+  }
+}

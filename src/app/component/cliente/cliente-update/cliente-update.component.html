@@ -79,12 +79,19 @@
       </mat-form-field>
     </div>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>CEP</mat-label>
-      <input matInput [(ngModel)]="cliente.endCep" name="endCep" required maxlength="8" #endCep="ngModel"
-             (paste)="bloquearPasteNumeros($event)">
-      <mat-error *ngIf="endCep.invalid && endCep.touched">CEP é obrigatório.</mat-error>
-    </mat-form-field>
+ <mat-form-field appearance="outline">
+        <mat-label>CEP</mat-label>
+        <input matInput
+               [(ngModel)]="cliente.endCep"
+               mask="00000-000"  
+               name="endCep"
+               required
+               #endCep="ngModel"
+               maxlength="10">  <!-- Tamanho ajustado para a máscara com o traço -->
+        <mat-error *ngIf="endCep.invalid && endCep.touched">
+          CEP é obrigatório.
+        </mat-error>
+      </mat-form-field>
 
     <!-- Botões -->
     <div class="button-container">

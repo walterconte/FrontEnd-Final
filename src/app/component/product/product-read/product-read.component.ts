@@ -19,9 +19,8 @@ export class ProductReadComponent implements OnInit {
     'proPrecoVenda',
     'proQuantidade',
     'marca',
-    'proAtivo',
-    'fornecedor',
-    'status',
+      'fornecedor',
+      'proAtivo',
     'action'
   ];
 

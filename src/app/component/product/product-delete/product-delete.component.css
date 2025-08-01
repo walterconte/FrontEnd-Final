@@ -26,10 +26,11 @@ mat-card-title {
 
 .button-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
+
 
 .button-container button {
   background-color: #4958af;

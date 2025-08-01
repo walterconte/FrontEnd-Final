@@ -2,48 +2,32 @@
   <mat-card-title>Alterar Marca</mat-card-title>
 
   <form #marcaForm="ngForm" (ngSubmit)="updateMarca()">
-
     <mat-form-field appearance="outline">
       <mat-label>Nome da Marca*</mat-label>
-      <input matInput
-             [(ngModel)]="marca.marNome"
-             name="marNome"
-             required
-             maxlength="50"
-               (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)"
-             #marNome="ngModel">
+      <input matInput [(ngModel)]="marca.marNome" name="marNome" required maxlength="50"
+             (keypress)="apenasLetras($event)" (paste)="bloquearPaste($event)" #marNome="ngModel">
       <mat-error *ngIf="marNome.invalid && marNome.touched">
         Nome da Marca é obrigatório.
       </mat-error>
     </mat-form-field>
 
-        <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Descrição*</mat-label>
-      <input matInput
-             [(ngModel)]="marca.marDescricao"
-             name="marDescricao"
-             maxlength="200"
+      <input matInput [(ngModel)]="marca.marDescricao" name="marDescricao" maxlength="200"
              #marDescricao="ngModel">
     </mat-form-field>
 
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
       <mat-label>Status da Marca</mat-label>
-      <mat-select
-        [(ngModel)]="marca.marAtivo"
-        name="marAtivo"
-        required
-        #marAtivo="ngModel">
+      <mat-select [(ngModel)]="marca.marAtivo" name="marAtivo" required #marAtivo="ngModel">
         <mat-option [value]="true">Ativo</mat-option>
         <mat-option [value]="false">Inativo</mat-option>
       </mat-select>
     </mat-form-field>
 
-
-
     <div class="button-container">
-  <button mat-raised-button color="primary" type="submit">Atualizar</button>
-  <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
-</div>
-
+      <button mat-raised-button color="primary" type="submit">Atualizar</button>
+      <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+    </div>
   </form>
 </mat-card>
