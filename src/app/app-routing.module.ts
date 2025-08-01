@@ -18,11 +18,6 @@ import { ClienteCreateComponent } from './component/cliente/cliente-create/clien
 import { ClienteUpdateComponent } from './component/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './component/cliente/cliente-delete/cliente-delete.component';
 
-import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
-import { VendaCreateComponent } from './component/venda/venda-create/venda-create.component';
-
-import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component';
-import { VendaDeleteComponent } from './component/venda/venda-delete/venda-delete.component';
 import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
 import { MarcaCrudComponent } from './views/marca-crud/marca-crud.component';
 import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
@@ -100,25 +95,6 @@ component:ClienteUpdateComponent
   {
     path: "clientes/delete/:cliId",
 component:ClienteDeleteComponent
-  },
-   
-  {
-        path:"vendas",
-    component: VendaCrudComponent
-    },
-
-    {
-    path: "vendas/create", // Rota para criação de um nova Venda
-    component: VendaCreateComponent // Componente para criar um Venda
-  },
-  
-  {
-    path:"vendas/update/:id",
-    component: VendaUpdateComponent
-  },
-   {
-    path:"vendas/delete/:vndId",
-    component: VendaDeleteComponent
   },
   { path: "marcas/create", 
     component: MarcaCreateComponent 

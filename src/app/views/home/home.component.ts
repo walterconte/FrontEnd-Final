@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/component/product/product.service';
-import { VendaService } from 'src/app/component/venda/venda.service';
 import { ClienteService } from 'src/app/component/cliente/cliente.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private vendaService: VendaService,
     private clienteService: ClienteService
   ) {}
 

@@ -47,15 +47,9 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 
 import { MatExpansionModule } from '@angular/material/expansion';
-
-import { VendaCreateComponent } from './component/venda/venda-create/venda-create.component';
-import { VendaDeleteComponent } from './component/venda/venda-delete/venda-delete.component';
-import { VendaReadComponent } from './component/venda/venda-read/venda-read.component';
-import { VendaCrudComponent } from './views/venda-crud/venda-crud.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { VendaUpdateComponent } from './component/venda/venda-update/venda-update.component';
 import { MarcaCreateComponent } from './component/marca/marca-create/marca-create.component';
 import { MarcaReadComponent } from './component/marca/marca-read/marca-read.component';
 import { MarcaUpdateComponent } from './component/marca/marca-update/marca-update.component';
@@ -92,12 +86,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ClienteUpdateComponent,
     ClienteCrudComponent,
  
-    VendaCreateComponent,
-    VendaDeleteComponent,
-    VendaReadComponent,
-    VendaCrudComponent,
- 
-    VendaUpdateComponent,
        MarcaCreateComponent,
        MarcaReadComponent,
        MarcaUpdateComponent,
